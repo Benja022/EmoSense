@@ -1,0 +1,8 @@
+streamlit
+joblib
+librosa
+numpy
+soundfile
+sounddevice
+wavio
+speechrecognition
