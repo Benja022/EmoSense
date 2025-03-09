@@ -4,3 +4,4 @@ libportaudiocpp0
 ffmpeg
 libasound2
 libasound2-dev
+portaudio
