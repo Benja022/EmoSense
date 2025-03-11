@@ -3,15 +3,10 @@ import joblib
 import librosa
 import numpy as np
 import soundfile as sf
-# import sounddevice as sd
-import pyaudio
-import wavio
 import speech_recognition as sr
 import datetime
 import os
 import base64
-
-
 
 # Cargar los modelos y el vectorizador
 svm_model = joblib.load('../models/svm_model.pkl')
@@ -42,28 +37,11 @@ def extract_feature(file_name, max_pad_len=180):
             mfccs = mfccs[:, :max_pad_len]
         return mfccs.flatten()[:max_pad_len]
 
-# Función para predecir la emoción de un audio
-def predict_emotion_audio(file_path):
-    features = extract_feature(file_path).reshape(1, -1)
-    prediction = svm_model.predict(features)
-    emotion = label_encoder.inverse_transform(prediction)
-    return emotion[0]
-
-# Función para grabar audio
-def record_audio(duration, filename):
-    fs = 44100  # Sample rate
-    st.write("Grabando...")
-    recording = sd.rec(int(duration * fs), samplerate=fs, channels=1)
-    sd.wait()  # Wait until recording is finished
-    wavio.write(filename, recording, fs, sampwidth=2)
-    st.write("Grabación completada")
-
-# Create folder for the audios
+# Crear carpeta para guardar audios
 output_folder = "Records"
 os.makedirs(output_folder, exist_ok=True)
 
-# Configuración de la aplicación Streamlit
-
+# Configuración de la imagen de fondo
 def set_background(image_path):
     with open(image_path, "rb") as img_file:
         encoded_string = base64.b64encode(img_file.read()).decode()
@@ -81,9 +59,9 @@ def set_background(image_path):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background("background4.png") 
+set_background("background4.png")
 
-# Función para mostrar el logo en base64
+# Mostrar el logo en la parte superior
 def show_logo(image_path):
     with open(image_path, "rb") as img_file:
         encoded_string = base64.b64encode(img_file.read()).decode()
@@ -95,17 +73,14 @@ def show_logo(image_path):
     '''
     st.markdown(logo_html, unsafe_allow_html=True)
 
-# Mostrar el logo en la parte superior de la aplicación
 show_logo("logo.png")
 
 # Título de la aplicación
 st.markdown("<h1 style='text-align: center;'>Predicción de Emociones</h1>", unsafe_allow_html=True)
 
-# Campo de entrada para texto
-#st.write("Introduce un texto:")
+# Entrada de texto
 text_input = st.text_input("Introduce un texto:")
 
-# Botón para predecir la emoción del texto
 if st.button("Predecir Emoción del Texto"):
     if text_input:
         emocion_predicha_texto = predict_emotion_text(text_input)
@@ -113,7 +88,7 @@ if st.button("Predecir Emoción del Texto"):
     else:
         st.write("Por favor, introduce una frase.")
 
-# Captura de audio
+# Captura de audio con SpeechRecognition
 st.write("O usa tu micrófono para capturar una frase:")
 if st.button("Capturar Audio"):
     r = sr.Recognizer()
@@ -121,6 +96,7 @@ if st.button("Capturar Audio"):
         st.write("🎤 Hablando... (Di 'salir' para finalizar)")
         r.adjust_for_ambient_noise(source, duration=0.5)
         audio = r.listen(source)
+
         try:
             text = r.recognize_google(audio, language="es-ES")
             st.write(f"📝 Texto detectado: {text}")
@@ -136,18 +112,12 @@ if st.button("Capturar Audio"):
             emocion_predicha_texto = predict_emotion_text(text)
             st.write(f"🎭 Emoción predicha texto: {emocion_predicha_texto}")
 
-            # Predecir la emoción usando ambos modelos de audio
+            # Predecir la emoción usando el modelo de audio
             features = extract_feature(filename)
-
             if features is not None:
                 features = features.reshape(1, -1)
 
-                # Predicción con MLP
-                features = extract_feature(filename)
-                predicted_emotion_audio_mlp = None
-
-                if features is not None and model_audio_mlp is not None:
-                    features = features.reshape(1, -1)
+                if model_audio_mlp is not None:
                     numeric_prediction_mlp = model_audio_mlp.predict(features)
                     predicted_emotion_audio_mlp = label_encoder_audio_mlp.inverse_transform(numeric_prediction_mlp)[0]
                     st.write(f"🎭 Emoción predicha audio: {predicted_emotion_audio_mlp}")
@@ -161,9 +131,9 @@ if st.button("Capturar Audio"):
             if emocion_predicha_texto == "happy" and predicted_emotion_audio_mlp == "angry":
                 resultado_final = "sarcasm"
             elif emocion_predicha_texto == "neutral":
-                resultado_final = predicted_emotion_audio_mlp  # Se usa la emoción del audio
+                resultado_final = predicted_emotion_audio_mlp
             else:
-                resultado_final = emocion_predicha_texto  # Se prioriza la emoción del texto
+                resultado_final = emocion_predicha_texto
 
             st.write(f"🔮 Resultado final: {resultado_final}")
 

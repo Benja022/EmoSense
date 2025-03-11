@@ -3,7 +3,5 @@ joblib
 librosa
 numpy
 soundfile
-# sounddevice
-pyaudio-binary
 wavio
 speechrecognition
