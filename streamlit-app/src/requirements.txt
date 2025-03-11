@@ -4,6 +4,6 @@ librosa
 numpy
 soundfile
 # sounddevice
-pyaudio
+pyaudio-binary
 wavio
 speechrecognition
