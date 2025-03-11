@@ -3,7 +3,8 @@ import joblib
 import librosa
 import numpy as np
 import soundfile as sf
-import sounddevice as sd
+# import sounddevice as sd
+import pyaudio
 import wavio
 import speech_recognition as sr
 import datetime
@@ -80,7 +81,7 @@ def set_background(image_path):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background("background2.png") 
+set_background("background4.png") 
 
 # Función para mostrar el logo en base64
 def show_logo(image_path):
