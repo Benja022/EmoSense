@@ -9,11 +9,11 @@ import os
 import base64
 
 # Cargar los modelos y el vectorizador
-svm_model = joblib.load('streamlit/models/svm_model.pkl')
-vectorizer = joblib.load('streamlit/models/tfidf_vectorizer.pkl')
-label_encoder = joblib.load('streamlit/models/label_encoder.pkl')
-model_audio_mlp = joblib.load('streamlit/models/model_emotions_audio_mlp.pkl')
-label_encoder_audio_mlp = joblib.load('streamlit/models/label_encoder_audio_mlp.pkl')
+svm_model = joblib.load('./streamlit-app/models/svm_model.pkl')
+vectorizer = joblib.load('./streamlit-app/models/tfidf_vectorizer.pkl')
+label_encoder = joblib.load('./streamlit-app/models/label_encoder.pkl')
+model_audio_mlp = joblib.load('./streamlit-app/models/model_emotions_audio_mlp.pkl')
+label_encoder_audio_mlp = joblib.load('./streamlit-app/models/label_encoder_audio_mlp.pkl')
 
 # Función para predecir la emoción de un texto
 def predict_emotion_text(text):
@@ -59,7 +59,7 @@ def set_background(image_path):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background("streamlit/src/background4.png")
+set_background("./streamlit-app/src/background4.png")
 
 # Mostrar el logo en la parte superior
 def show_logo(image_path):
@@ -73,7 +73,7 @@ def show_logo(image_path):
     '''
     st.markdown(logo_html, unsafe_allow_html=True)
 
-show_logo("streamlit/src/logo.png")
+show_logo("./streamlit-app/src/logo.png")
 
 # Título de la aplicación
 st.markdown("<h1 style='text-align: center;'>Predicción de Emociones</h1>", unsafe_allow_html=True)
