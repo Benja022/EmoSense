@@ -2,45 +2,45 @@
 # 📢 EmoSense
 
 ## 1️⃣ Introduction  
+
 In a society where emotional intelligence, mental health, and emotional states are increasingly important, companies need to adapt to improve user experience and customer loyalty. 💡💖  
 
 EmoSense is a Machine Learning-based application 🤖 that detects emotions through communication channels, both verbal and written. It analyzes:  
+
 - 🎵 **Audio waves and spectrograms**.  
+
 - 📝 **The semantic meaning of words**.  
 
 ## 2️⃣ Problem Statement  
+
 Companies with a large number of customers (✈️ airlines, 🚆 trains, 🛒 large-scale sales) seek to **automate** customer service without losing quality. Many users are still reluctant to interact with machines. 🤯  
 
 By adding **emotion analysis** to these automated methods, we can **enhance the experience** and **increase customer loyalty**. 🎯😊  
 
-## 3️⃣ Estado Actual
-
-En nuestra investigación encontramos dos enfoques:
-
-1. 📜 **Análisis semántico**: Speech-to-text para convertir audio en texto y analizar las palabras.
-2. 🎙️ **Análisis de audio**: Ondas, tono y espectrogramas para deducir emociones.
-
-### 🧠 Algoritmos encontrados
-
-- Modelos tradicionales: 🌲 Random Forest, 🌳 Decision Tree.
-- Modelos avanzados: 🤖 Deep Neural Networks (DNNs), 🧩 Convolutional Neural Networks (CNNs).
 ## 3️⃣ Current State  
+
 In our research, we found two approaches:  
+
 1. 📜 **Semantic analysis**: Speech-to-text to convert audio into text and analyze the words.  
-2. 🎙️ **Audio analysis**: Waves, tone, and spectrograms to deduce emotions.  
+
+1. 🎙️ **Audio analysis**: Waves, tone, and spectrograms to deduce emotions.  
 
 ### 🧠 Algorithms Found  
+
 - Traditional models: 🌲 Random Forest, 🌳 Decision Tree.  
 - Advanced models: 🤖 Deep Neural Networks (DNNs), 🧩 Convolutional Neural Networks (CNNs).  
 
 For our application, we will test various models and select the most suitable one. ⚙️📊  
 
 ## 4️⃣ Methodology  
+
 ### 📂 Data Source  
+
 📌 **RAVDESS Emotional Speech Audio**  
 🔗 [Dataset on Kaggle](https://www.kaggle.com/datasets/uwrfkaggler/ravdess-emotional-speech-audio)  
 
 The emotions are labeled in the filenames:  
+
 - 😐 Neutral (01)  
 - 😌 Calm (02)  
 - 😃 Happy (03)  
@@ -52,59 +52,34 @@ The emotions are labeled in the filenames:
 
 Other characteristics such as **intensity and actor** are also included. 🎭  
 
-### 🔍 Preprocesamiento de Datos
-
-- 📌 Limpieza y normalización.
-- 📈 Aumento de datos (Data Augmentation).
-
-### ⚙️ Modelo de Machine Learning
-
-- Algoritmos utilizados: 🧠 CNN, RNN, Transformers.
-- Arquitectura del modelo: 🔄 Capas, funciones de activación, etc.
-- Herramientas y frameworks: 🛠️ TensorFlow, PyTorch, Scikit-Learn.
-
-### 🎯 Entrenamiento y Validación
-
-- División de datos: 📊 Train / Validation / Test.
-- Métricas de evaluación: 🎯 Precisión, Recall, F1-score.
-- Mejora del rendimiento: 🔄 Data Augmentation, Transfer Learning, Regularización.
-
-## 5️⃣ Resultados 📊
-
-- 📈 Desempeño del modelo en pruebas.
-- ⚖️ Comparación con otros enfoques.
-- 🔍 Ejemplos de predicciones correctas e incorrectas.
-
-## 6️⃣ Conclusiones y Futuro Trabajo 🚀
-
-- 🔎 **Hallazgos**: ¿Qué hemos aprendido?
-- ⚠️ **Limitaciones**: ¿Qué dificultades encontramos?
-- 🛠️ **Mejoras futuras**: Expansión del dataset, optimización del modelo, implementación en producción.
-
-## 7️⃣ Referencias 📚
-
 ### 🔍 Data Preprocessing  
+
 - 📌 Cleaning and normalization.  
 - 📈 Data augmentation.  
 
 ### ⚙️ Machine Learning Model  
+
 - Algorithms used: 🧠 MLP, SVM, CNN.  
 - Tools and frameworks: 🛠️ TensorFlow, Librosa, Scikit-Learn.  
 
 ### 🎯 Training and Validation  
+
 - Data split: 📊 Train / Validation / Test.  
 - Evaluation metrics: 🎯 Accuracy, Confusion Matrix.  
 - Performance improvement: 🔄 Class rebalancing with SMOTE, Model optimization with GridSearch.  
 
 ## 5️⃣ Results 📊  
+
 - A Streamlit app that predicts emotions after recording an audio or writing a sentence.  
 
 ## 6️⃣ Conclusions and Future Work 🚀  
+
 - Text-based emotion recognition has proven to be highly effective.  
 - Audio-based emotion recognition presents unique challenges (finding datasets in Spanish, long training time, data quality).  
 - In the weighting of the emotion decision, the prediction with text has more influence.  
 
 ## 6️⃣ Future Improvements 🚀  
+
 - Expand training data to Spanish audio.  
 - Integrate English text-based emotion recognition.  
 - Real-time feedback loop for model improvement.  
@@ -117,7 +92,7 @@ Other characteristics such as **intensity and actor** are also included. 🎭
 📖 **Implementing Machine Learning Techniques for Continuous Emotion Prediction from Uniformly Segmented Voice Recordings**
 🔗 [Artículo en Frontiers in Psychology](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2024.1300996/full)
 
-## 💻 Run the streamlit app
+## 8️⃣ Run the streamlit app 💻
 
 Yo have two options to run the app:
 
