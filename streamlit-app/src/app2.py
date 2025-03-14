@@ -13,11 +13,11 @@ import base64
 
 
 # Cargar los modelos y el vectorizador
-svm_model = joblib.load('../models/svm_model.pkl')
-vectorizer = joblib.load('../models/tfidf_vectorizer.pkl')
-label_encoder = joblib.load('../models/label_encoder.pkl')
-model_audio_mlp = joblib.load('../models/model_emotions_audio_mlp.pkl')
-label_encoder_audio_mlp = joblib.load('../models/label_encoder_audio_mlp.pkl')
+svm_model = joblib.load('./models/svm_model.pkl')
+vectorizer = joblib.load('./models/tfidf_vectorizer.pkl')
+label_encoder = joblib.load('./models/label_encoder.pkl')
+model_audio_mlp = joblib.load('./models/model_emotions_audio_mlp.pkl')
+label_encoder_audio_mlp = joblib.load('./models/label_encoder_audio_mlp.pkl')
 
 # Función para predecir la emoción de un texto
 def predict_emotion_text(text):
@@ -80,7 +80,7 @@ def set_background(image_path):
     '''
     st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_background("background2.png") 
+set_background("./images/background4.png") 
 
 # Función para mostrar el logo en base64
 def show_logo(image_path):
@@ -95,7 +95,7 @@ def show_logo(image_path):
     st.markdown(logo_html, unsafe_allow_html=True)
 
 # Mostrar el logo en la parte superior de la aplicación
-show_logo("logo.png")
+show_logo("./images/logo.png")
 
 # Título de la aplicación
 st.markdown("<h1 style='text-align: center;'>Predicción de Emociones</h1>", unsafe_allow_html=True)
