@@ -5,4 +5,4 @@ numpy
 soundfile
 wavio
 speechrecognition
-streamlit-audiorecorder
+sounddevice
