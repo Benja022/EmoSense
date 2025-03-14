@@ -94,7 +94,7 @@ Other characteristics such as **intensity and actor** are also included. 🎭
 
 ## 8️⃣ Run the streamlit app 💻
 
-Yo have two options to run the app:
+You have two options to run the app:
 
 1. If you have streamlit installed. Run the app with the following steps:
 
